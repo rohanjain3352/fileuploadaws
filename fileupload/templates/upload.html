@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+
+
+{% block content %}
+ <form action="/upload-file/" method="post" enctype="multipart/form-data">\
+
+    {% csrf_token %}
+    <input id="thisFile" type="file" name="myfile">
+    <button type="submit">Upload</button>
+  </form>
+  {% if message %}
+    <p>{{ message }}</a></p>
+  {% endif %}
+{% endblock %}
+
+<script type="text/javascript">
+    var someVar = document.getElementById('thisFile').value;
+    console.log(someVar);
+</script>
